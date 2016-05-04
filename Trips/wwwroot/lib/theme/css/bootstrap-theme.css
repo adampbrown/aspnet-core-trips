@@ -1,0 +1,172 @@
+﻿body {
+    background-color: #F2F2F2;
+    font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    color: #333;
+}
+
+.page-header {
+    margin-top: 1.5em;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.navbar {
+    background-color: #003057;
+    border-width: 0;
+    color: #fff;
+}
+
+.navbar-collapse {
+    padding-left:0;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+    color: #fff;
+    background-color: transparent;
+}
+
+.navbar .navbar-text {
+    color: #fff;
+}
+
+.navbar .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus {
+    color: #fff;
+    background-color: transparent;
+}
+
+.navbar .navbar-nav > .active > a,
+.navbar .navbar-nav > .active > a:hover,
+.navbar .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
+}
+
+.navbar .navbar-nav > .dropdown > a:hover .caret,
+.navbar .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+}
+
+.navbar .navbar-nav > .open > a,
+.navbar .navbar-nav > .open > a:hover,
+.navbar .navbar-nav > .open > a:focus {
+    background-color: #428bca;
+    color: #fff;
+}
+
+.navbar .navbar-nav > .open > a .caret,
+.navbar .navbar-nav > .open > a:hover .caret,
+.navbar .navbar-nav > .open > a:focus .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+}
+
+.navbar .navbar-nav > .dropdown > a .caret {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+}
+
+.navbar .navbar-link {
+    color: #fff;
+}
+
+.navbar .navbar-link:hover {
+    color: #fff;
+}
+
+.jumbotron {
+    background-color: #fff;
+    border-color: #e3e3e3;
+}
+
+.breadcrumb {
+    background-color: transparent;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.pagination {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.modal-footer {
+    text-align: left;
+}
+
+.well {
+    background-color: #fff;
+}
+
+.dl-horizontal
+{
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.dl-horizontal > dt
+{
+    line-height: 2.5em;
+    padding-right: 15px;
+    border-top: 1px solid #e3e3e3;
+}
+
+.dl-horizontal > dd
+{
+    margin:0;
+    line-height: 2.5em;
+    border-top: 1px solid #e3e3e3;
+}
+
+.brand-bar {
+    background-color: #fff;
+    display: block;
+    height: 70px;
+}
+
+.brand-bar .logo {
+    display: inline-block;
+    height: 40px;
+    width: 133px;
+    margin: 15px 15px 15px 0;
+}
+
+.brand-bar h1 {
+    display: block;
+    float: right;
+    height: 40px;
+    line-height: 40px;
+    margin: 15px 0 15px 15px;
+    font-size: 24pt;
+}
+
+.build-version {
+    text-align: right;
+    color: #999;
+    font-size: 0.9em;
+    padding: 20px 0 20px 0;
+}
+
+.table-text-sm {
+    font-size: 12px;
+}
+
+.spacer-sm {
+    margin-bottom: 10px;
+}
+
+.spacer-md {
+    margin-bottom: 30px;
+}

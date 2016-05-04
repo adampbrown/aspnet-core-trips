@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The World - @ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/theme/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+
+<body>
+
+    <div class="brand-bar">
+        <div class="container">
+            <a href="#" class="pull-left">
+                <img src="~/lib/theme/images/the-world.png" alt="the world" class="logo" />
+            </a>
+            <h1>Trips</h1>
+        </div>
+    </div>
+    @Component.Invoke("Navbar")
+    <div class="container">
+        <div class="page-header">
+            <h2>
+                <span>@ViewBag.Title</span>
+                <small>@RenderSection("TitleContent", false)</small>
+            </h2>
+        </div>
+        @RenderBody()
+    </div>
+
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <environment names="Development">
+        <script type="text/javascript" src="~/js/site.js"></script>
+    </environment>
+    <environment names="Production,Staging">
+        <script type="text/javascript" src="~/lib/_app/site.js"></script>
+    </environment>
+
+    @RenderSection("Scripts", false)
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+﻿@using System.Threading.Tasks
+@using TheWorld.Models.Shared
+@model TheWorld.Models.Shared.NavbarModel
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
+        @if (Model.DisplayNavigation)
+        {
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @foreach (var menuItem in Model.MenuItems)
+                    {
+                        if (menuItem.SubItems == null || !menuItem.SubItems.Any())
+                        {
+                            var cssClass = menuItem.Active ? "active" : "";
+                            <li class="@cssClass"><a href="@menuItem.Url">@menuItem.Text</a></li>
+                            continue;
+                        }
+
+                        var subCssClass = "dropdown" + (menuItem.Active ? " active" : "");
+                        <li class="@subCssClass">
+                            <a href='#' class='dropdown-toggle' data-toggle='dropdown'>@menuItem.Text <span class='caret'></span></a>
+                            <ul class='dropdown-menu' role='menu'>
+                                @foreach (var subMenuItem in menuItem.SubItems)
+                                {
+                                    <li><a href="@subMenuItem.Url">@subMenuItem.Text</a></li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class='dropdown'>
+                        <a href='#' class='dropdown-toggle' data-toggle='dropdown'><i class="fa fa-user"></i> @Model.Username <span class='caret'></span></a>
+                        <ul class='dropdown-menu' role='menu'>
+                            <li><a asp-controller="Auth" asp-action="Logout" title="Sign out">Sign out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        }
+    </div>
+</div>
+
+
