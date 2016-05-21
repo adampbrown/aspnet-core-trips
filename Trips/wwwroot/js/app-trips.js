@@ -20,7 +20,5 @@
       });
 
       $routeProvider.otherwise({ redirectTo: "/"});
-
     });
-
 })();

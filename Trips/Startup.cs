@@ -8,6 +8,7 @@
     using Microsoft.AspNet.Hosting;
     using Microsoft.AspNet.Http;
     using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.AspNet.Mvc.Rendering;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
@@ -17,10 +18,17 @@
     using TheWorld.Services;
     using TheWorld.ViewModels;
 
+    /// <summary>
+    /// The application startup class.
+    /// </summary>
     public class Startup
     {
         public static IConfigurationRoot Configuration;
 
+        /// <summary>
+        /// Builds the application configuration from the application environment.
+        /// </summary>
+        /// <param name="appEnv">The <see cref="IApplicationEnvironment"/>.</param>
         public Startup(IApplicationEnvironment appEnv)
         {
             var builder = new ConfigurationBuilder()
@@ -31,14 +39,16 @@
             Configuration = builder.Build();
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
+        /// <summary>
+        /// Adds services to the container (called by the .net core runtime).
+        /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection"/>.</param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(config =>
             {
 #if !DEBUG
-        config.Filters.Add(new RequireHttpsAttribute());
+            config.Filters.Add(new RequireHttpsAttribute());
 #endif
       })
             .AddJsonOptions(opt =>
@@ -83,11 +93,13 @@
 #if DEBUG
             services.AddScoped<IMailService, MockMailService>();
 #else
-      services.AddScoped<IMailService, MailService>();
+            services.AddScoped<IMailService, MailService>();
 #endif
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// Configures the HTTP request pipeline (called by the .net core runtime).
+        /// </summary>
         public async void Configure(IApplicationBuilder app,
           WorldContextSeedData seeder,
           ILoggerFactory loggerFactory,
@@ -126,7 +138,9 @@
             await seeder.EnsureSeedDataAsync();
         }
 
-        // Entry point for the application.
+        /// <summary>
+        /// Entry point for the application.
+        /// </summary>
         public static void Main(string[] args) => WebApplication.Run<Startup>(args);
     }
 }

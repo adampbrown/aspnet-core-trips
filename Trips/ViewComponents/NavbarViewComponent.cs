@@ -17,7 +17,7 @@
             menus.Add(new MenuItem
             {
                 Text = "Home",
-                Url = Url.Action("App", "Home"),
+                Url = Url.Action("Index", "App"),
                 Active = currentController == "Home"
             });
 

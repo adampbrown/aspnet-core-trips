@@ -24,10 +24,10 @@
         <span class="text-danger" ng-show="newStopForm.name.$error.minlength">Must be 5 characters or more</span>
       </div>
       <div>
-        <input type="submit" value="Add" class="btn btn-success" ng-disabled="newStopForm.$invalid" />
+        <input type="submit" value="Add Stop" class="btn btn-success" ng-disabled="newStopForm.$invalid" />
       </div>
     </form>
-
+    <br/>
     <table class="table table-responsive table-striped">
       <tr>
         <th>Location</th>
@@ -35,7 +35,8 @@
       </tr>
       <tr ng-repeat="stop in vm.stops">
         <td>{{ stop.name }}</td>
-        <td>{{ stop.arrival | date:shortDate }}</td>
+          <td>{{ stop.arrival | date:shortDate }}</td>
+          <td><a ng-href="#/delete/{{ stop.Id }}" class="btn btn-sm btn-danger"><i class="fa fa-remove"></i></a></td>
       </tr>
     </table>
 

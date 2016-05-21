@@ -23,6 +23,12 @@
 
         private readonly IWorldRepository repository;
 
+        /// <summary>
+        /// The controller for managing trip stops.
+        /// </summary>
+        /// <param name="repository">The <see cref="IWorldRepository"/>.</param>
+        /// <param name="logger">The <see cref="ILogger"/>.</param>
+        /// <param name="coordService">The <see cref="CoordService"/>.</param>
         public StopController(IWorldRepository repository,
           ILogger<StopController> logger,
           CoordService coordService)
@@ -64,7 +70,7 @@
                 {
                     var newStop = Mapper.Map<Stop>(vm);
 
-                    // Looking up Geocoordinates
+                    // Looking up Geo-coordinates
                     var coordResult = await this.coordService.Lookup(newStop.Name);
 
                     if (!coordResult.Success)
@@ -77,12 +83,12 @@
                     newStop.Longitude = coordResult.Longitude;
                     newStop.Latitude = coordResult.Latitude;
 
-                    // Save to the Database
                     this.repository.AddStop(tripName, User.Identity.Name, newStop);
 
                     if (this.repository.SaveAll())
                     {
                         Response.StatusCode = (int)HttpStatusCode.Created;
+
                         return Json(Mapper.Map<StopViewModel>(newStop));
                     }
                 }
